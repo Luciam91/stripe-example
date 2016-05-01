@@ -1,0 +1,14 @@
+{
+    "name": "luciam91/stripeexample",
+    "require": {
+        "stripe/stripe-php": "^3.12",
+        "symfony/var-dumper": "^3.0"
+    },
+    "authors": [
+        {
+            "name": "Scott Pringle",
+            "email": "pringlesc91@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
