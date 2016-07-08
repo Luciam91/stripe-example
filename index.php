@@ -6,17 +6,22 @@ $stripeKey = getenv("STRIPE_KEY");
 
 \Stripe\Stripe::setApiKey($stripeKey);
 
+// Generate a token
+$token = \Stripe\Token::create([
+  'card' => [
+      'number' => '4242424242424242',
+      'exp_month' => 7,
+      'exp_year' => 2017,
+      'cvc' => '413'
+    ]
+]);
+
+
 // Create a customer
 $customer = \Stripe\Customer::create(
   [
     "description" => "Test customer",
-    'source' => [
-      'object' => 'card',
-      'exp_month' => 12,
-      'exp_year' => 2018,
-      'number' => 4242424242424242,
-      'cvc' => 123
-    ]
+    'source' => $token->id
   ]
 );
 
